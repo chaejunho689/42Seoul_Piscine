@@ -16,7 +16,7 @@ int 	ft_strcmp(char *s1, char *s2)
 		if(s1[i] != s2[j])
 		{
 			if(s1[i] > s2[j])
-				return (1);
+				return (1); // s1 - s2로 수정해야함 
 			else if(s1[i] < s2[j])
 				return (-1);
 		}

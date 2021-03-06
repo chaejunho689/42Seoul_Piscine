@@ -6,6 +6,10 @@ int 	ft_str_is_numeric(char *str)
 	int j;
 
 	i = 0;
+	if(str[0] == '\0')
+	{
+		j = 1;
+	}
 	while(str[i] != '\0')
 	{
 		if(48 <= str[i] && str[i] <=  57)
