@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utility.c                                          :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkang <mkang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 11:52:40 by mkang             #+#    #+#             */
-/*   Updated: 2021/03/06 14:52:56 by mkang            ###   ########.fr       */
+/*   Updated: 2021/03/06 22:24:10 by mkang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 void	ft_strncpy(char *dest, char *src, int size)
 {
@@ -25,10 +25,10 @@ bool	ft_is_in_charset(char c, char *charset)
 	while (*charset)
 	{
 		if (c == *charset)
-			return true;
+			return (true);
 		charset++;
 	}
-	return false;
+	return (false);
 }
 
 int		ft_count_words(char *str)
@@ -73,14 +73,10 @@ char	**ft_split(char *str)
 			while (*str && !ft_is_in_charset(*str, charset))
 				str++;
 			result[i] = (char *)malloc(sizeof(char) * (str - from + 1));
-			ft_strncpy(result[i], from, str - from);
-			i += 1;
+			ft_strncpy(result[i++], from, str - from);
 		}
 		else
-		{
 			str++;
-		}
 	}
-
 	return (result);
 }

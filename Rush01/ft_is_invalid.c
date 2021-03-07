@@ -6,11 +6,13 @@
 /*   By: mkang <mkang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 14:53:34 by mkang             #+#    #+#             */
-/*   Updated: 2021/03/06 15:58:19 by mkang            ###   ########.fr       */
+/*   Updated: 2021/03/06 18:59:01 by mkang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
+
+int		ft_count_words(char *str);
 
 int		ft_strlen(char *str)
 {
