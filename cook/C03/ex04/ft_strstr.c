@@ -12,9 +12,8 @@ char	*ft_strstr(char *str, char *to_find)
 		return (str);
 	while (str[i] != '\0')
 	{
-		if(str[i] == to_find[j])
+		if(str[i + j] == to_find[j])
 		{
-				i++;
 				j++;
 		}
 		else if (to_find[j] == '\0')
@@ -34,11 +33,13 @@ int 	main()
 {
 	char *string;
 
-	char str1[] = "";
-	char str2[] = "123";
-	string = ft_strstr(str1, str2);
-	printf("%s\n", string);
-	string = strstr(str1, str2);
-	printf("%s\n", string);
+	char str1[] = "banana";
+	char str2[] = "applebbananaapple";
+	string = ft_strstr(str2, str1);
+	if (string)
+		printf("ft: %s\n", string);
+	string = strstr(str2, str1);
+	if (string)
+		printf("std: %s\n", string);
 	return 0;
 }

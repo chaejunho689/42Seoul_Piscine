@@ -1,36 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 18:29:57 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/11 00:55:35 by jchae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
 
-int 	ft_strncmp(char *s1, char *s2, unsigned int n)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int i;
-	int j;
+	unsigned int i;
 
 	i = 0;
-	j = 0;
-
-	while(s1[i] <= s1[n] || s1[i] == s2[j])
+	while (((s1[i] != '\0') || (s2[i] != '\0')) && (i < n))
 	{
-		i++;
-		j++;
-		if(s1[i] != s2[j])
+		if (s1[i] == s2[i])
 		{
-			if(s1[i] > s2[j])
-				return (1);
-			else if(s1[i] < s2[j])
-				return (-1);
+			i++;
+			continue; // 밑에를 실행하지 않고 다시 while문 복귀
 		}
-		if(s1[i] == '\0' || s2[j] == '\0')
-			break;
+		else if (s1[i] > s2[i])
+			return (1);
+		else if (s1[i] < s2[i])
+			return (-1);
+		i++;
 	}
-	return 0;
+	return (0);
 }
-
-int	main()
+int		main(void)
 {
-	printf("%d\n", ft_strncmp("kimwonkyun", "kimwon", 7));
-	printf("%d\n", strncmp("kimwonkyun", "kimwon", 7));
-	return 0;
+	printf("%d\n", ft_strncmp("", "", 0));
+	printf("%d\n", strncmp("", "", 0));
+	return (0);
 }
-

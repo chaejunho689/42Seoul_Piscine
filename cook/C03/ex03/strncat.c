@@ -25,12 +25,11 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 int 	main()
 {	
-	char dest[100] = "Hello";
-	char src[7] = "Annyong";
-	printf("%s\n", ft_strncat(dest, src, 3));
-	char pest[10] = "Hello";
-	printf("%s\n", strncat(pest, src, 3));
+	char dest[10] = "123";
+	char src[7] = "123";
+	printf("%s\n", ft_strncat(dest, src, 0));
+	char pest[10] = "123";
+	char prc[7] = "123";
+	printf("%s\n", strncat(pest, prc, 0));
 	return 0;
 }
-
-

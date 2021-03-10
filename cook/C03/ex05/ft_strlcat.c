@@ -41,11 +41,13 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 int	main()
 {
 	char dest[10] = "Helleee"; //4개
-	char src[] = "Anaaa"; //2개
-	printf("%lu", strlcat(dest, src, 8));
+	char src[] = "123456789"; //2개
+	printf("%lu\n", strlcat(dest, src, 8));
 //	printf("%s", dest);
+	printf("%s " , dest);
+	printf("%s " , src);
 	char dest2[10] = "Helleee";
-	char src2[] = "Anaaa";
-	printf("%d", ft_strlcat(dest2, src2, 8));
+	char src2[] = "123456789";
+	printf("%d\n", ft_strlcat(dest2, src2, 8));
 	return 0;
 }

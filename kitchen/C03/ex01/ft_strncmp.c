@@ -5,31 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 19:52:25 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/08 19:54:24 by jchae            ###   ########.fr       */
+/*   Created: 2021/03/10 18:29:57 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/10 19:42:56 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	int i;
-	int j;
+	int result;
 
 	i = 0;
-	j = 0;
-	while (s1[i] <= s1[n] || s1[i] == s2[j])
+	while ((s1[i] != '\0' || s2[i] != '\0') && (i < n))
 	{
-		i++;
-		j++;
-		if (s1[i] != s2[j])
+		if (s1[i] == s2[i])
 		{
-			if (s1[i] > s2[j])
-				return (1);
-			else if (s1[i] < s2[j])
-				return (-1);
+			i++;
+			continue;
 		}
-		if (s1[i] == '\0' || s2[j] == '\0')
-			break ;
+		else if (s1[i] > s2[i])
+			return (1);
+		else if (s1[i] < s2[i])
+			return (-1);
+		i++;
 	}
 	return (0);
 }

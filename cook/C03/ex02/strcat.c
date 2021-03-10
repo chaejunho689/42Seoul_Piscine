@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strcat.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 19:34:55 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/11 00:58:12 by jchae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 char	*ft_strcat(char *dest, char *src)
 {
@@ -8,28 +21,23 @@ char	*ft_strcat(char *dest, char *src)
 
 	i = 0;
 	j = 0;
-
-	while(dest[i] != '\0')
+	while (dest[i] != '\0')
 	{
 		i++;
 	}
-	while(src[j] != '\0')
+	while (src[j] != '\0')
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
 	}
-	if(src[j] == '\0')
-	{
-		dest[i] = '\0';
-	}
+	dest[i] = '\0';
+
 	return (dest);
 }
 
-#include <stdlib.h>
-
-int 	main()
-{	
+int 	main(void)
+{
 	char *dest = malloc(sizeof(char) * 11); // 말록은 널값이 들어가야하므로 1 크기를 더 줌
 	for (int i = 0; i < 5; i++)
 		dest[i] = 'a';
