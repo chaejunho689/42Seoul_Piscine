@@ -6,7 +6,7 @@
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 17:10:21 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/12 01:54:06 by jchae            ###   ########.fr       */
+/*   Updated: 2021/03/14 20:20:09 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_putnbr_base(int nbr, char *base)
 
 int	main(void)
 {
-	int nbr = 10;
+	int nbr = 100;
 	char base[] = "01";
 	printf("입력값은 %d\n", nbr);
 	ft_putnbr_base(nbr, base);
