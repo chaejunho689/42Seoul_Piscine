@@ -5,42 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/10 19:44:13 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/10 19:49:50 by jchae            ###   ########.fr       */
+/*   Created: 2021/03/15 06:14:29 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/15 06:20:43 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_result(int dest_size, int src_size, int size)
+int				ft_strlen(char *str)
 {
-	unsigned int result;
+	int i;
 
-	if (size <= dest_size)
-		result = src_size + size;
-	else
-		result = src_size + dest_size;
-	return (result);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int result;
 	unsigned int dest_size;
 	unsigned int src_size;
+	unsigned int j;
+	unsigned int save_src_size;
+	unsigned int save_dest_size;
 
-	result = 0;
-	dest_size = 0;
 	src_size = 0;
-	while (dest[dest_size] != '\0')
-		dest_size++;
-	while (src[src_size] != '\0')
-		src_size++;
-	result = ft_result(dest_size, src_size, size);
-	while ((src[src_size] != '\0') && (size - dest_size - 1))
+	dest_size = ft_strlen(dest);
+	save_src_size = ft_strlen(src);
+	save_dest_size = ft_strlen(dest);
+	j = size - dest_size - 1;
+	if (save_dest_size < size)
 	{
-		dest[dest_size] = src[src_size];
-		dest_size++;
-		src_size++;
+		while ((src[src_size] != '\0') && (src_size < j))
+		{
+			dest[dest_size] = src[src_size];
+			dest_size++;
+			src_size++;
+		}
+		dest[dest_size + 1] = '\0';
+		return (save_src_size + save_dest_size);
 	}
-	dest[dest_size] = '\0';
-	return (result);
+	else
+		return (save_src_size + size);
 }

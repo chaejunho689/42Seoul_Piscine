@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dic_check.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/14 23:01:38 by nkim              #+#    #+#             */
+/*   Updated: 2021/03/14 23:01:40 by nkim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rush.h"
 
 int		is_in_arr(char c, char *arr)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (arr[i] != 0)
@@ -24,8 +36,8 @@ int		is_printable(u_int8_t c)
 
 char	*is_key_valid(char *line, int *validity)
 {
-	size_t		i;
-	int			col;
+	size_t	i;
+	int		col;
 
 	i = 0;
 	col = 0;
@@ -53,8 +65,8 @@ char	*is_key_valid(char *line, int *validity)
 
 char	*is_printable_valid(char *line, int *validity)
 {
-	size_t		i;
-	int			notspace;
+	size_t	i;
+	int		notspace;
 
 	i = 0;
 	notspace = 0;
@@ -81,10 +93,10 @@ char	*is_printable_valid(char *line, int *validity)
 
 int		is_valid_line(char *line)
 {
-	char		*aftercol;
-	int			validity;
+	char	*aftercol;
+	int		validity;
 
-    validity = FALSE;
+	validity = FALSE;
 	aftercol = is_key_valid(line, &validity);
 	if (validity == FALSE)
 		return (validity);

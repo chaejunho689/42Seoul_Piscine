@@ -6,7 +6,7 @@
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 13:59:06 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/11 13:26:04 by desire           ###   ########.fr       */
+/*   Updated: 2021/03/15 03:28:57 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,21 @@
 int		ft_strcmp(char *s1, char *s2)
 {
 	int i;
-	int result;
 
-	while(s1[i] != '\0' || s2[i] != '\0')
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		if(s1[i] != s2[i])
-			result = s1[i] - s2[i];
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		else
-		{
-			result = s1[i] - s2[i];
-		}
-		i++;
+			i++;
 	}
-	return (result);
+	return (s1[i] - s2[i]);
 }
 
 int		main(void)
 {
-	printf("%d\n", ft_strcmp("", ""));
-	printf("%d\n", strcmp("", ""));
+	printf("%d\n", ft_strcmp("112113", "113111"));
+	printf("%d\n", strcmp("112113", "113111"));
 	return (0);
 }

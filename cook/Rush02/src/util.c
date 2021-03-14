@@ -6,47 +6,11 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 15:32:44 by nkim              #+#    #+#             */
-/*   Updated: 2021/03/14 15:32:46 by nkim             ###   ########.fr       */
+/*   Updated: 2021/03/14 23:02:10 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush.h"
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-void	ft_putchar(char *str)
-{
-	int	i;
-
-	i = -1;
-	while (*str)
-	{
-		write(1, str, 1);
-		str++;
-	}
-}
-
-size_t	ft_strlen(char *str)
-{
-	size_t	str_len;
-
-	str_len = 0;
-	while (str[str_len])
-		str_len++;
-	return (str_len);
-}
 
 char	*ft_strcat(char *dest, char *src)
 {
@@ -73,7 +37,7 @@ char	*check_zero(char *input)
 {
 	char	*start;
 	char	*result;
-	int i;
+	int		i;
 
 	start = input;
 	if (*start == '0')
@@ -116,7 +80,7 @@ char	*strip_str(char *input)
 	return (result);
 }
 
-char	*read_until_enter()
+char	*read_until_enter(void)
 {
 	char	buf;
 	char	*result;

@@ -1,52 +1,56 @@
 #include <stdio.h>
 #include <string.h>
 
-
-unsigned int 	ft_result(unsigned int dest_size, unsigned int src_size, unsigned int size)
+int				ft_strlen(char *str)
 {
-	unsigned int result;
-
-	if(size <= dest_size)
-		result = src_size + size;
-	else
-		result = src_size + dest_size;
-	return (result);
+	int i;
+    
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
-
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int result;
 	unsigned int dest_size;
 	unsigned int src_size;
+	unsigned int j;
+	unsigned int save_src_size;
+	unsigned int save_dest_size;
 
-	result = 0;
-	dest_size = 0;
 	src_size = 0;
-	while (dest[dest_size] != '\0') // 길이 측정
-		dest_size++;
-	while (src[src_size] != '\0') // 길이 측정
-		src_size++;
-	while ((src[src_size] != '\0') && (size - dest_size - 1))
+	dest_size = ft_strlen(dest);
+	save_src_size = ft_strlen(src);
+	save_dest_size = ft_strlen(dest);
+	j = size - dest_size - 1;
+	if (save_dest_size < size)
 	{
-		dest[dest_size] = src[src_size];
-		dest_size++;
-		src_size++;
+		while ((src[src_size] != '\0') && (src_size < j))
+		{
+//										printf("i랑 j값 %d %d\n", i, j);
+//										printf("소스 사이즈 %c\n", src[src_size]);
+			dest[dest_size++] = src[src_size++];
+//			dest_size++;
+//			src_size++;
+		}
+		dest[dest_size + 1] = '\0';
+		return (save_src_size + save_dest_size);
 	}
-	dest[dest_size] = '\0';
-	return (result);
+	else
+		return (save_src_size + size);
 }
 
-int	main()
+int    main()
 {
-	char dest[10] = "Helleee"; //4개
-	char src[] = "123456789"; //2개
-	printf("%lu\n", strlcat(dest, src, 8));
-//	printf("%s", dest);
-	printf("%s " , dest);
-	printf("%s " , src);
-	char dest2[10] = "Helleee";
-	char src2[] = "123456789";
-	printf("%d\n", ft_strlcat(dest2, src2, 8));
+	char dest[10] = "123";
+	char src[] = "123123";
+	printf("정답" "%lu %s\n", strlcat(dest, src, 5), dest); // 실제
+	char dest2[10] = "123";
+	char src2[] = "123123";
+	printf("풀이" "%d %s\n", ft_strlcat(dest2, src2, 5), dest2); // 구현
 	return 0;
 }
+

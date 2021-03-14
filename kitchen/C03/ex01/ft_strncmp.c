@@ -6,28 +6,29 @@
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 18:29:57 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/10 19:42:56 by jchae            ###   ########.fr       */
+/*   Updated: 2021/03/15 06:30:18 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int i;
-	int result;
+	unsigned int i;
 
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && (i < n))
+	if (n == 0)
+		return (0);
+	while (((s1[i] != '\0') && (s2[i] != '\0')) || i < n)
 	{
 		if (s1[i] == s2[i])
 		{
 			i++;
 			continue;
 		}
-		else if (s1[i] > s2[i])
-			return (1);
-		else if (s1[i] < s2[i])
-			return (-1);
+		else
+			return (s1[i] - s2[i]);
 		i++;
 	}
+	if (s1[0] == '\0' || s2[0] == '\0')
+		return (s1[i] - s2[i]);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 15:32:11 by nkim              #+#    #+#             */
-/*   Updated: 2021/03/14 15:32:16 by nkim             ###   ########.fr       */
+/*   Updated: 2021/03/14 23:15:27 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ void	add_print_buf(char *str)
 uint8_t	*input_to_int_arr(char *input, size_t input_len)
 {
 	uint8_t	*num;
+	int		i;
+	int		shift_num;
 
-	int i, shift_num;
 	num = (uint8_t *)malloc_initialize(sizeof(uint8_t) * input_len);
 	i = 0;
 	shift_num = 0;
@@ -68,8 +69,8 @@ void	print_term(int num, s_numdict *dict)
 
 void	print_numbers(uint8_t *input, size_t input_len, s_numdict *dict)
 {
-	int	i;
-	int	tmp_num;
+	size_t	i;
+	int		tmp_num;
 
 	i = 0;
 	while (i < input_len)
@@ -91,81 +92,31 @@ void	print_numbers(uint8_t *input, size_t input_len, s_numdict *dict)
 		add_print_buf(dict->zero);
 }
 
-void	free_dict(s_numdict *dict)
+void	print_result(char *tmp_input, s_numdict *dict, int argc)
 {
-	int	i;
+	uint8_t	*input;
+	size_t	input_len;
 
-	free(dict->zero);
-	free(dict->hundreds);
-	i = 0;
-	while (i < 10)
-	{
-		if (dict->numbers[i])
-			free(dict->numbers[i]);
-		if (dict->teen[i])
-			free(dict->teen[i]);
-		if (dict->tens[i])
-			free(dict->tens[i]);
-		i++;
-	}
-	i = 0;
-	while (i < dict->unit_size)
-	{
-		if (dict->unit[i])
-			free(dict->unit[i]);
-		i++;
-	}
-	free(dict->unit);
-	free(dict);
-}
-
-void print_result(char *tmp_input, s_numdict *dict, int argc)
-{
-	uint8_t		*input;
-	size_t		input_len;
-
-	g_print_buf = malloc_initialize(1);
-	input_len = ft_strlen(tmp_input);
-	input = input_to_int_arr(tmp_input, input_len);
-	print_numbers(input, input_len, dict);
-	g_print_buf = strip_str(g_print_buf);
-	write(1, g_print_buf, ft_strlen(g_print_buf));
-	write(1, "\n", 1);
-
-	if (argc == 1)
-		free(tmp_input);
-	free(input);
-	free(g_print_buf);
-	free_dict(dict);
-}
-
-int		main(int argc, char **argv)
-{
-	char		*tmp_input;
-	s_numdict	*dict;
-
-	if (argc < 3)
-	{
-		if (argc == 1)
-			tmp_input = read_until_enter();
-		if (argc == 2)
-			tmp_input = argv[1];
-		dict = build_dict(DEFAULT_DICT_FILE);
-	}
-	else if (argc == 3)
-	{
-		tmp_input = argv[2];
-		dict = build_dict(argv[1]);
-	}
 	if (argc >= 4 || !(dict) || !(is_valid_input(tmp_input)))
 	{
 		if (argc >= 4)
 			ft_putchar("Error\n");
 		else
-			ft_putchar("Dgggct Error\n");
+			ft_putchar("Dict Error\n");
 	}
-	print_result(tmp_input, dict, argc);
-	while(1)
-	{}
-	return (0);
+	else
+	{
+		g_print_buf = malloc_initialize(1);
+		input_len = ft_strlen(tmp_input);
+		input = input_to_int_arr(tmp_input, input_len);
+		print_numbers(input, input_len, dict);
+		g_print_buf = strip_str(g_print_buf);
+		write(1, g_print_buf, ft_strlen(g_print_buf));
+		write(1, "\n", 1);
+		if_free(input);
+		if_free(g_print_buf);
+		free_dict(dict);
+	}
+	if (argc == 1)
+		if_free(tmp_input);
 }

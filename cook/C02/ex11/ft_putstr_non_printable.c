@@ -1,19 +1,23 @@
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_hexchar(char *hexchar)
+void	ft_hexchar(char c)
 {
-	int i;
+	char *hexchar;
 
-	hexchar = "123456789abcdef"
-	if(i < 16)
-	ft_putchar(ft_hexchar(hexchar[i]) / 16);
-	ft_putchar(ft_hexchar(hexchar[i]) % 16);
-
+	hexchar = "123456789abcdef";
+	if(*hexchar < 16)
+	{
+		ft_hexchar(*hexchar / 16);
+		ft_hexchar(*hexchar % 16);
+	}
+	else
+		ft_putchar(hexchar[c]);
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -21,17 +25,28 @@ void	ft_putstr_non_printable(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] < 32 && str[i] == 127)
+	while (str[i])
 	{
-		str[i] = ft_putchar('\\');
-		ft_hexchar(str[i]);
+		if ((str[i] < 32 && str[i] > 0) || str[i] == 127)
+		{	
+			ft_putchar('\\');
+			if (str[i] < 16)
+			{
+				ft_putchar('0');
+			}
+			//ft_hexchar(str[i]);
+		}
+		else if (str[i] == 0)
+			ft_putchar('0');
+		else
+			ft_putchar(str[i]);
+		i++;
 	}
 }
 
 int		main(void)
 {
-	int	i;
-	i = 0;
-	
+	char *str = "Coucou\ntu vas bien ?";
+	printf("%c", ft_putstr_non_printable(str));
 	return (0);
 }

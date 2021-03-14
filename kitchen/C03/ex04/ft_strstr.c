@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/10 19:43:29 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/10 19:47:30 by jchae            ###   ########.fr       */
+/*   Created: 2021/03/15 06:13:48 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/15 06:14:16 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ char	*ft_strstr(char *str, char *to_find)
 		return (str);
 	while (str[i] != '\0')
 	{
-		if (str[i] == to_find[j])
+		if (str[i + j] == to_find[j])
 		{
-			i++;
 			j++;
 		}
 		else if (to_find[j] == '\0')
-			return (&str[i - j]);
+			return (&str[i]);
 		else
 		{
 			j = 0;

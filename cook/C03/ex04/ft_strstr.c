@@ -17,7 +17,7 @@ char	*ft_strstr(char *str, char *to_find)
 				j++;
 		}
 		else if (to_find[j] == '\0')
-				return (&str[i - j]);
+				return (&str[i]);
 		else
 		{
 			j = 0;
@@ -31,15 +31,14 @@ char	*ft_strstr(char *str, char *to_find)
 
 int 	main()
 {
-	char *string;
+	char *string1;
+	char *string2;
 
-	char str1[] = "banana";
-	char str2[] = "applebbananaapple";
-	string = ft_strstr(str2, str1);
-	if (string)
-		printf("ft: %s\n", string);
-	string = strstr(str2, str1);
-	if (string)
-		printf("std: %s\n", string);
+	char str1[] = "cd";
+	char str2[] = "abcde";
+	string1 = ft_strstr(str2, str1);
+	printf("제가쓴거 : %s\n", string1);
+	string2 = strstr(str2, str1);
+	printf("정답: %s\n", string2);
 	return 0;
 }
