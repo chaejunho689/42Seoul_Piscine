@@ -6,7 +6,7 @@
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 18:29:57 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/11 00:55:35 by jchae            ###   ########.fr       */
+/*   Updated: 2021/03/11 13:36:45 by desire           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n)
 }
 int		main(void)
 {
-	printf("%d\n", ft_strncmp("", "", 0));
-	printf("%d\n", strncmp("", "", 0));
+	printf("%d\n", ft_strncmp("3334", "3335", 4));
+	printf("%d\n", strncmp("3334", "3335", 4));
 	return (0);
 }

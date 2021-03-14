@@ -32,9 +32,9 @@ int	ft_atoi(char *str)
 
 int	main(void)
 {
-	char arr[] = " -+1234";
+	char arr[] = " --0";
 	printf("%d", ft_atoi(arr));
 	return 0;
 }
-//왜 0으로 나올까 결과가? 
+//왜 0으로 나올까 결과가dd? 
 // 마이너스가 들어가면 오류가 나온다. 

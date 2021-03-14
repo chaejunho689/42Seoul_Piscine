@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-unsigned int 	ft_result(int dest_size, int src_size, int size)
+unsigned int 	ft_result(unsigned int dest_size, unsigned int src_size, unsigned int size)
 {
 	unsigned int result;
 
@@ -23,11 +23,10 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	result = 0;
 	dest_size = 0;
 	src_size = 0;
-	while (dest[dest_size] != '\0')
+	while (dest[dest_size] != '\0') // 길이 측정
 		dest_size++;
-	while (src[src_size] != '\0')
+	while (src[src_size] != '\0') // 길이 측정
 		src_size++;
-	result = ft_result(dest_size, src_size, size);
 	while ((src[src_size] != '\0') && (size - dest_size - 1))
 	{
 		dest[dest_size] = src[src_size];
