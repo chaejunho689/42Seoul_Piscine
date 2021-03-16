@@ -1,21 +1,29 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/16 00:34:00 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/16 01:49:42 by jchae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char 	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	n = 0;
-	while (src[n] != '\0')
+	unsigned int i;
+
+	i = 0;
+	while (src[i] != '\0' && i < n)
 	{
-		dest[n] = src[n];
-		n++;
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
 	}
 	return (dest);
-}
-
-int	main(void)
-{
-	char dest[7] = "Hello";
-	char src[4] = "hi";
-	ft_strncpy(dest, src);
-	printf("%s", dest);
-	return 0;
 }

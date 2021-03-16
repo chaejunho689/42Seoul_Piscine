@@ -1,44 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_interactive_factorial.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/16 02:16:16 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/16 02:25:22 by jchae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int		ft_interactive_factorial(int nb)
+{
+	int result;
+
+	result = 1;
+	if (nb < 0)
+		return (0);
+	if (nb == 0)
+		return (1);
+	while (nb)
+	{
+		result = result * nb;
+		nb--;
+	}
+	return (result);
+}
+
 #include <stdio.h>
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int main	()
 {
-	write(1, &c, 1);
-}
-
-int	ft_strlen(char *base)
-{
-	int i;
-
-	i = 0;
-	while(base[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-void	ft_putnbr_base(int nbr, char *base)
-{
-	int i;
-	int len;
-	int mod;
-	int div;
-
-	len = ft_strlen(base);
-	while (nbr != 0)
-	{
-		div = nbr / len;
-		mod = nbr % len;
-		nbr = div;
-		ft_putchar(base[mod]);
-	}
-
-}
-
-int	main()
-{
-	char *base = "01234";
-	ft_putnbr_base(45, base);
+	printf("%d", ft_interactive_factorial(-1));
 	return 0;
 }

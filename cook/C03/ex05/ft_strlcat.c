@@ -1,10 +1,19 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/15 23:44:20 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/16 00:09:45 by jchae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int				ft_strlen(char *str)
+int			ft_strlen(char *str)
 {
 	int i;
-    
+
 	i = 0;
 	while (str[i] != '\0')
 	{
@@ -17,40 +26,47 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int dest_size;
 	unsigned int src_size;
-	unsigned int j;
-	unsigned int save_src_size;
-	unsigned int save_dest_size;
+	unsigned int result;
 
-	src_size = 0;
 	dest_size = ft_strlen(dest);
-	save_src_size = ft_strlen(src);
-	save_dest_size = ft_strlen(dest);
-	j = size - dest_size - 1;
-	if (save_dest_size < size)
-	{
-		while ((src[src_size] != '\0') && (src_size < j))
-		{
-//										printf("i랑 j값 %d %d\n", i, j);
-//										printf("소스 사이즈 %c\n", src[src_size]);
-			dest[dest_size++] = src[src_size++];
-//			dest_size++;
-//			src_size++;
-		}
-		dest[dest_size + 1] = '\0';
-		return (save_src_size + save_dest_size);
-	}
+	src_size = ft_strlen(src);
+	result = src_size;
+	if (size <= dest_size)
+		result += size;
 	else
-		return (save_src_size + size);
+		result += dest_size;
+	src_size = 0;
+	while (src[src_size] != '\0' && dest_size + 1 < size)
+	{
+		dest[dest_size] = src[src_size];
+		dest_size++;
+		src_size++;
+	}
+	dest[dest_size] = '\0';
+	return (result);
 }
 
-int    main()
+#include <stdio.h>
+#include <string.h>
+
+int				main(void)
 {
-	char dest[10] = "123";
-	char src[] = "123123";
-	printf("정답" "%lu %s\n", strlcat(dest, src, 5), dest); // 실제
-	char dest2[10] = "123";
-	char src2[] = "123123";
-	printf("풀이" "%d %s\n", ft_strlcat(dest2, src2, 5), dest2); // 구현
-	return 0;
+	char	*str_base;
+	char	dest[100];
+	char	dest2[100];
+	char	*src;
+	int		index;
+
+	str_base = "Hello";
+	src = " World";
+	index = 0;
+	while (index < 6)
+	{
+		dest[index] = str_base[index];
+		dest2[index] = str_base[index];
+		index++;
+	}
+	printf("c  : (%lu) $%s$\n", strlcat(dest, src, 100), dest);
+	printf("ft : (%d) $%s$\n", ft_strlcat(dest2, src, 100), dest2);
 }
 

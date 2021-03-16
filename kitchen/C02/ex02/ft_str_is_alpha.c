@@ -1,37 +1,32 @@
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/16 00:34:32 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/16 06:45:04 by jchae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int		ft_str_is_alpha(char *str)
 {
 	int i;
-	int j;
-	
-	i = 0;
-	while(str[i] != '\0')
-	{
-		if(65 <= str[i] && str[i] <= 90)
-		{	
-			i++;
-			j = 1;
-		}
-		else if(97 <= str[i] && str[i] <= 122)
-		{
-			i++;
-			j = 1;
-		}
-		else
-		{
-			j = 0;
-			break;
-		}
-	}
-	return (j);
-}
 
-int 	main(void)
-{
-	char tab[6] = "*ACD";
-	ft_str_is_alpha(&tab[0]);
-	printf("%d", ft_str_is_alpha(tab));
-	return (0);
+	i = 0;
+	if (str[0] == '\0')
+	{
+		return (1);
+	}
+	while (str[i] != '\0')
+	{
+		if (!((str[i] >= 'a' && str[i] <= 'z') ||
+			(str[i] >= 'A' && str[i] <= 'Z')))
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 17:10:21 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/14 20:20:09 by jchae            ###   ########.fr       */
+/*   Updated: 2021/03/15 20:00:59 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	ft_strlen(char *base)
 	{
 		i++;
 	}
-//	printf("%d진수\n", i);
 	return (i);
 }
 
@@ -51,17 +50,18 @@ void	ft_putnbr_base(int nbr, char *base)
 		ft_putchar('-');
 		ft_putput(nbr, base_len);
 	}
-	else if(nbr >= base_len)
+	else if (nbr < base_len
+			ft_putchar(base[nbr]);
+	else if (nbr >= base_len)
 	{
-		ft_putput(nbr, base_len);
+		ft_putnbr_base(nbr / base_len, base);
+		ft_putnbr_base(nbr % base_len, base);
 	}
-	else
-		ft_putchar(48 + nbr);
 }
 
 int	main(void)
 {
-	int nbr = 100;
+	int nbr = 10;
 	char base[] = "01";
 	printf("입력값은 %d\n", nbr);
 	ft_putnbr_base(nbr, base);

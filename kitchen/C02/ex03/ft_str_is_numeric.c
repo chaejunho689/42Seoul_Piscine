@@ -1,18 +1,28 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/15 16:27:49 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/15 16:28:27 by jchae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int 	ft_str_is_numeric(char *str)
+int		ft_str_is_numeric(char *str)
 {
 	int i;
 	int j;
 
 	i = 0;
-	if(str[0] == '\0')
+	if (str[0] == '\0')
 	{
 		j = 1;
 	}
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if(48 <= str[i] && str[i] <=  57)
+		if (48 <= str[i] && str[i] <= 57)
 		{
 			i++;
 			j = 1;
@@ -20,16 +30,8 @@ int 	ft_str_is_numeric(char *str)
 		else
 		{
 			j = 0;
-			break;
+			break ;
 		}
 	}
 	return (j);
-}
-
-int 	main(void)
-{
-	char tab[6] = "0259";
-	ft_str_is_numeric(&tab[0]);
-	printf("%d", ft_str_is_numeric(tab));
-	return (0);
 }

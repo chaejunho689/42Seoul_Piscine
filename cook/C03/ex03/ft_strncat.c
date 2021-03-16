@@ -1,5 +1,14 @@
-#include <string.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/15 06:12:55 by jchae             #+#    #+#             */
+/*   Updated: 2021/03/15 06:13:12 by jchae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
@@ -8,12 +17,11 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 	i = 0;
 	j = 0;
-
-	while(dest[i] != '\0')
+	while (dest[i] != '\0')
 	{
 		i++;
 	}
-	while(src[j] != '\0' && j < nb)
+	while (src[j] != '\0' && j < nb)
 	{
 		dest[i] = src[j];
 		i++;
@@ -21,15 +29,4 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-int 	main()
-{	
-	char dest[10] = "123";
-	char src[7] = "123";
-	printf("%s\n", ft_strncat(dest, src, 0));
-	char pest[10] = "123";
-	char prc[7] = "123";
-	printf("%s\n", strncat(pest, prc, 0));
-	return 0;
 }
