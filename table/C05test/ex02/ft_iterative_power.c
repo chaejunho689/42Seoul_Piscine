@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interactive_power.c                             :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 12:15:49 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/17 19:17:08 by jchae            ###   ########.fr       */
+/*   Updated: 2021/03/17 22:03:16 by desire           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int		ft_iterative_power(int nb, int power)
 	result = 1;
 	if (power < 0)
 		return (0);
-	if (power == 1)
+	if (power == 0)
 		return (1);
 	while (i < power)
 	{
 		result = result * nb;
+		i++;
 	}
-	i++;
 	return (result);
 }
