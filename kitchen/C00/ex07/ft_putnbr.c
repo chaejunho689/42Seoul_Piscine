@@ -6,7 +6,7 @@
 /*   By: jchae <jchae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 23:25:09 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/08 15:26:09 by jchae            ###   ########.fr       */
+/*   Updated: 2021/02/24 23:25:11 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,31 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putput(int sutja)
-{
-	if (sutja > 9)
-	{
-		ft_putput(sutja / 10);
-	}
-	ft_putchar(48 + sutja % 10);
-}
-
 void	ft_putnbr(int nb)
 {
-	if (nb == -2147483648)
+	int a;
+	int b;
+	int c;
+
+	c = -2147483648;
+	if (nb > 0)
 	{
-		write(1, "-2147483648", 11);
+		a = nb / 10;
+		b = nb % 10;
+		ft_putchar('0' + a);
+		ft_putchar('0' + b);
 	}
-	else if (nb < 0)
+	else if (nb == c)
 	{
-		nb *= -1;
-		ft_putchar('-');
-		ft_putput(nb);
-	}
-	else if (nb > 9)
-	{
-		ft_putput(nb);
-	}
-	else if (nb <= 9)
-	{
-		ft_putchar('0' + nb);
+		write(1, "–2147483648", 13);
 	}
 	else
 	{
-		write(1, "0", 1);
+		nb *= -1;
+		a = nb / 10;
+		b = nb % 10;
+		ft_putchar('-');
+		ft_putchar('0' + a);
+		ft_putchar('0' + b);
 	}
 }
