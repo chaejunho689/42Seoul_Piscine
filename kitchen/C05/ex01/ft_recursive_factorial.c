@@ -6,15 +6,12 @@
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 02:26:57 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/17 12:15:35 by jchae            ###   ########.fr       */
+/*   Updated: 2021/03/18 04:36:00 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_recursive_factorial(int nb)
 {
-	int result;
-
-	result = 1;
 	if (nb < 0)
 		return (0);
 	if (nb == 0)

@@ -6,8 +6,17 @@
 /*   By: jchae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 19:13:58 by jchae             #+#    #+#             */
-/*   Updated: 2021/03/17 19:13:59 by jchae            ###   ########.fr       */
+/*   Updated: 2021/03/18 04:34:47 by jchae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 
+int	ft_ten_queens_puzzle(void)
+{
+	int retry;
+	int someday;
+
+	Retry = 1;
+	Someday = 60;
+}
