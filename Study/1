@@ -1,0 +1,30 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+
+int	ft_strlen(char *s)
+{
+	int i;
+	i = 0;
+
+	while (*s != '\0')
+	{
+		s++;
+		i++;
+	}
+	return (i);	
+}
+
+int	main(void)
+{
+	char *s1;
+
+	printf("## 0\n");
+	scanf("%s", s1);
+	printf("## 1\n");
+	printf("%d\n", ft_strlen(s1));
+	printf("2\n");
+	printf("%lu\n", strlen(s1));
+	printf("3\n");
+	return (0);
+}
